@@ -4,12 +4,12 @@
       <h2>ご相談内容をご記入ください</h2>
       <p>-ご相談内容-</p>
       <div class="textContainer">
-        <textarea name="name" id="counseling" cols="90" rows="10" v-model="areaData"></textarea>
+        <textarea name="name" id="counseling" cols="90" rows="10" v-model="$store.state.textareaData"></textarea>
       </div>
     </div>
     <div class="btn">
       <router-link to="/secondForm"><button>前へ戻る ▶︎</button></router-link>
-      <router-link to=""><button>次へ進む ▶︎</button></router-link>
+      <router-link to="/fourthForm"><button>次へ進む ▶︎</button></router-link>
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@
 export default {
   data() {
     return {
-      areaData:''
+      //
     }
   }
 }

@@ -4,21 +4,21 @@
       <h2>お客様情報を入力してください</h2>
       <p>-性別-</p>
       <label>
-        <input type="radio" v-model="radio" name="gender" value="男性">男性
-        <input type="radio" v-model="radio" name="gender" value="女性">女性
+        <input type="radio" v-model="$store.state.genderData" name="genderData" value="男性">男性
+        <input type="radio" v-model="$store.state.genderData" name="genderData" value="女性">女性
       </label>
       <!-- 生年月日を作成 -->
       <p>-生年月日-</p>
-      <select v-model="birthdayData.year">
-        <option v-for="year in datas.years" :key="year">{{ year }}</option>
+      <select v-model="$store.state.yearsData">
+        <option v-for="year in years" :key="year">{{ year }}</option>
       </select>年
       <!-- 月を作成 -->
-      <select v-model="birthdayData.month">
-        <option v-for="mon in datas.month" :key="mon">{{ mon }}</option>
+      <select v-model="$store.state.monthData">
+        <option v-for="mon in months" :key="mon">{{ mon }}</option>
       </select>月
       <!--日を作成-->
-      <select v-model="birthdayData.days">
-        <option v-for="day in datas.days" :key="day">{{ day }}</option>
+      <select v-model="$store.state.dayData">
+        <option v-for="day in days" :key="day">{{ day }}</option>
       </select>日
     </div>
     <div class="btn">
@@ -29,36 +29,18 @@
 </template>
 
 <script>
+import yearsData from '../helpers/definition.js';
+
 export default {
   data() {
     return {
-      datas: {
-        years: [],
-        month: [],
-        days: [],
-      },
-      birthdayData: {
-        year: '',
-        month: '',
-        days: '',
-      }
+      //外部jsファイルから生年月日を作成する関数を取得
+      years: yearsData.getYearData(),
+      months: yearsData.getMonthData(),
+      days: yearsData.getDayData(),
     }
   },
-  created() {
-    //西暦を作成
-    for(let i = 1968; i <= 2000; i++) {
-      this.datas.years.push(i);
-    }
-    //月を作成
-    for(let i = 1; i <= 12; i++) {
-      this.datas.month.push(i);
-    }
-    //日を作成
-    for(let i = 1; i <= 31; i++) {
-      this.datas.days.push(i);
-    }
-  },
-  methods: {
+  computed: {
     //
   }
 }
