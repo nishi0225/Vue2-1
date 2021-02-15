@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Vue課題②-2画面作成予定</h1>
+    <h3>Vue課題②-2画面作成予定</h3>
   </div>
 </template>
 

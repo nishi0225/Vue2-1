@@ -5,23 +5,23 @@
       <!-- 1つ目の質問 -->
       <div @click="secondDisplay=true">
         <p>-現在、生命保険に加入していますか？-</p>
-          <label><input type="radio" name="first_question" v-model="$store.state.firstData" value="Yes">はい</label>
-          <label><input type="radio" name="first_question" v-model="$store.state.firstData" value="No">いいえ</label>
+          <label><input type="radio" name="firstData" v-model="firstData" value="はい">はい</label>
+          <label><input type="radio" name="firstData" v-model="firstData" value="いいえ">いいえ</label>
       </div>
       <!-- 2つ目の質問 -->
       <transition>
       <div v-if="secondDisplay" @click="thirdDisplay=true">
         <p>-現在入院中ですか。または、、最近3ヶ月以内に医師の診察・検査の結果、入院・手術をすすめられたことはありますか？-</p>
-          <label><input type="radio" name="second_question" v-model="$store.state.secondData" value="Yes">はい</label>
-          <label><input type="radio" name="second_question" v-model="$store.state.secondData" value="No">いいえ</label>
+          <label><input type="radio" name="secondData" v-model="secondData" value="はい">はい</label>
+          <label><input type="radio" name="secondData" v-model="secondData" value="いいえ">いいえ</label>
       </div>
       </transition>
       <!-- 3つ目の質問 -->
       <transition>
       <div v-if="thirdDisplay">
         <p>-過去5年以内に、病気や怪我で、手術をうけたことまたは継続して7日以上の入院をしたことはありますか？-</p>
-          <label><input type="radio" name="third_question" v-model="$store.state.thirdData" value="Yes">はい</label>
-          <label><input type="radio" name="third_question" v-model="$store.state.thirdData" value="No">いいえ</label>
+          <label><input type="radio" name="thirdData" v-model="thirdData" value="はい">はい</label>
+          <label><input type="radio" name="thirdData" v-model="thirdData" value="いいえ">いいえ</label>
       </div>
       </transition>
     </div>
@@ -39,6 +39,32 @@ export default {
     return {
       secondDisplay: false,
       thirdDisplay: false
+    }
+  },
+  computed: {
+    firstData: {
+      get() {
+        return this.$store.state.firstData;
+      },
+      set(value) {
+        this.$store.commit('upDataFirst', value);
+      }
+    },
+    secondData: {
+      get() {
+        return this.$store.state.secondData;
+      },
+      set(value) {
+        this.$store.commit('upDataSecond', value);
+      }
+    },
+    thirdData: {
+      get() {
+        return this.$store.state.thirdData;
+      },
+      set(value) {
+        this.$store.commit('upDataThird', value);
+      }
     }
   }
 }

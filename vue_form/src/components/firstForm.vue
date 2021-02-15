@@ -4,20 +4,20 @@
       <h2>お客様情報を入力してください</h2>
       <p>-性別-</p>
       <label>
-        <input type="radio" v-model="$store.state.genderData" name="genderData" value="男性">男性
-        <input type="radio" v-model="$store.state.genderData" name="genderData" value="女性">女性
+        <input type="radio" v-model="genderData" name="genderData" value="男性">男性
+        <input type="radio" v-model="genderData" name="genderData" value="女性">女性
       </label>
       <!-- 生年月日を作成 -->
       <p>-生年月日-</p>
-      <select v-model="$store.state.yearsData">
+      <select v-model="yearData">
         <option v-for="year in years" :key="year">{{ year }}</option>
       </select>年
       <!-- 月を作成 -->
-      <select v-model="$store.state.monthData">
+      <select v-model="monthData">
         <option v-for="mon in months" :key="mon">{{ mon }}</option>
       </select>月
       <!--日を作成-->
-      <select v-model="$store.state.dayData">
+      <select v-model="dayData">
         <option v-for="day in days" :key="day">{{ day }}</option>
       </select>日
     </div>
@@ -41,7 +41,38 @@ export default {
     }
   },
   computed: {
-    //
+    genderData: {
+      get() {
+        return this.$store.state.genderData;
+      },
+      set(value) {
+        this.$store.commit('upDataGender', value);
+      }
+    },
+    yearData: {
+      get() {
+        return this.$store.state.yearData;
+      },
+      set(value) {
+        this.$store.commit('upDataYear', value);
+      }
+    },
+    monthData: {
+      get() {
+        return this.$store.state.monthData;
+      },
+      set(value) {
+        this.$store.commit('upDataMonth', value);
+      }
+    },
+    dayData: {
+      get() {
+        return this.$store.state.dayData;
+      },
+      set(value) {
+        this.$store.commit('upDataDay', value);
+      }
+    }
   }
 }
 </script>

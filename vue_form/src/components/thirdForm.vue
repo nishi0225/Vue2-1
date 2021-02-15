@@ -4,7 +4,7 @@
       <h2>ご相談内容をご記入ください</h2>
       <p>-ご相談内容-</p>
       <div class="textContainer">
-        <textarea name="name" id="counseling" cols="90" rows="10" v-model="$store.state.textareaData"></textarea>
+        <textarea name="name" id="counseling" cols="90" rows="10" v-model="textareaData"></textarea>
       </div>
     </div>
     <div class="btn">
@@ -16,9 +16,14 @@
 
 <script>
 export default {
-  data() {
-    return {
-      //
+  computed: {
+    textareaData: {
+      get() {
+        return this.$store.state.textareaData;
+      },
+      set(value) {
+        this.$store.commit('upDataText', value);
+      }
     }
   }
 }
