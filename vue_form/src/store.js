@@ -9,10 +9,20 @@ export default new Vuex.Store({
     yearData: '',
     monthData: '',
     dayData: '',
-    firstData: '',
-    secondData: '',
-    thirdData: '',
+    firstQuestionData: '',
+    secondQuestionData: '',
+    thirdQuestionData: '',
     textAreaData: '',
+  },
+  getters: {
+    getGenderData : state => state.genderData,
+    getYearData : state => state.yearData,
+    getMonthData : state => state.monthData,
+    getDayData : state => state.DayData,
+    getFirstQuestionData : state => state.firstQuestionData,
+    getSecondQuestionData : state => state.secondQuestionData,
+    getThirdData : state => state.thirdQuestionData,
+    getTextAreaData : state => state.textAreaData
   },
   mutations: {
     upDataGender(state, value) {
@@ -28,13 +38,13 @@ export default new Vuex.Store({
       state.dayData = value;
     },
     upDataFirst(state, value) {
-      state.firstData = value;
+      state.firstQuestionData = value;
     },
     upDataSecond(state, value) {
-      state.secondData = value;
+      state.secondQuestionData = value;
     },
     upDataThird(state, value) {
-      state.thirdData = value;
+      state.thirdQuestionData = value;
     },
     upDataText(state, value) {
       state.textAreaData = value;
