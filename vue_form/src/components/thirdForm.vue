@@ -19,7 +19,7 @@ export default {
   computed: {
     textAreaData: {
       get() {
-        return this.$store.getters.gettextAreaData;
+        return this.$store.getters.getTextAreaData;
       },
       set(value) {
         this.$store.commit('upDataText', value);

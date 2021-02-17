@@ -18,10 +18,10 @@ export default new Vuex.Store({
     getGenderData : state => state.genderData,
     getYearData : state => state.yearData,
     getMonthData : state => state.monthData,
-    getDayData : state => state.DayData,
+    getDayData : state => state.dayData,
     getFirstQuestionData : state => state.firstQuestionData,
     getSecondQuestionData : state => state.secondQuestionData,
-    getThirdData : state => state.thirdQuestionData,
+    getThirdQuestionData : state => state.thirdQuestionData,
     getTextAreaData : state => state.textAreaData
   },
   mutations: {

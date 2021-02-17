@@ -51,7 +51,7 @@ export default {
     },
     yearData: {
       get() {
-        return this.$store.getters.getyearData;
+        return this.$store.getters.getYearData;
       },
       set(value) {
         this.$store.commit('upDataYear', value);
@@ -59,7 +59,7 @@ export default {
     },
     monthData: {
       get() {
-        return this.$store.getters.getmonthData;
+        return this.$store.getters.getMonthData;
       },
       set(value) {
         this.$store.commit('upDataMonth', value);
@@ -67,7 +67,7 @@ export default {
     },
     dayData: {
       get() {
-        return this.$store.getters.getdayData;
+        return this.$store.getters.getDayData;
       },
       set(value) {
         this.$store.commit('upDataDay', value);

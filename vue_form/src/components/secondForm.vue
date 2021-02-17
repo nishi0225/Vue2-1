@@ -44,7 +44,7 @@ export default {
   computed: {
     firstQuestionData: {
       get() {
-        return this.$store.getters.getfirstQuestionData;
+        return this.$store.getters.getFirstQuestionData;
       },
       set(value) {
         this.$store.commit('upDataFirst', value);
@@ -52,7 +52,7 @@ export default {
     },
     secondQuestionData: {
       get() {
-        return this.$store.getters.getsecondQuestionData;
+        return this.$store.getters.getSecondQuestionData;
       },
       set(value) {
         this.$store.commit('upDataSecond', value);
@@ -60,7 +60,7 @@ export default {
     },
     thirdQuestionData: {
       get() {
-        return this.$store.getters.getthirdQuestionData;
+        return this.$store.getters.getThirdQuestionData;
       },
       set(value) {
         this.$store.commit('upDataThird', value);
